@@ -18,7 +18,6 @@ export default {
     product: Object
   },
   computed: {
-
     productImage () {
       return require(`../assets/img/${this.product.image}.png`)
     },
