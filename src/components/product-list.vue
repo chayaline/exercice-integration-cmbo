@@ -64,5 +64,9 @@ export default {
   justify-content: center;
   width: 100%;
   flex-wrap: wrap;
+  a {
+    text-decoration: none;
+    color: $grey-dark;
+  }
 }
 </style>

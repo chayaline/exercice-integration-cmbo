@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'buttonAdd'
 }
 </script>
 
@@ -15,7 +16,7 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 22px 45px;
+  margin: 22px 16px;
   font-size: 16px;
   color: $white;
   border: none;
