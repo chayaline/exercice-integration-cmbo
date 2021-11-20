@@ -33,6 +33,11 @@ export default {
   width: 217px;
   display: flex;
   flex-direction: column;
+  margin: 0 .5em;
+
+  img {
+    filter: brightness(95%);
+  }
 
   &--header {
     display: flex;
@@ -58,6 +63,19 @@ export default {
     color: $grey-mid;
     font-weight: 400;
     margin: 10px 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+    img {
+      filter: brightness(100%)
+    }
+    .title, .price {
+      font-weight: 900;
+    }
+    .divider {
+      background-color: $yellow-30a;
+    }
   }
 }
 </style>

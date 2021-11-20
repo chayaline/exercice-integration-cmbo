@@ -26,6 +26,8 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+  background-color: $white;
+  z-index: 2;
 
   img {
     margin: 21px 20px;

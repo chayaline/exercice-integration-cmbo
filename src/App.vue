@@ -3,7 +3,7 @@
     <div id="nav">
       <Header/>
     </div>
-    <router-view/>
+    <router-view class="main-view"/>
   </div>
 </template>
 
@@ -36,5 +36,11 @@ export default {
       color: $yellow;
     }
   }
+}
+
+.main-view {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 </style>

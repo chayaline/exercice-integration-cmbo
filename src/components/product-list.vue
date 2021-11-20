@@ -33,7 +33,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 52px 7em;
+  padding: 52px 0;
   width: auto;
 }
 
@@ -47,7 +47,7 @@ export default {
 .products-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   flex-wrap: wrap;
 }
