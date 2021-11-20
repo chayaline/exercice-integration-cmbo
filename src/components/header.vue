@@ -1,6 +1,8 @@
 <template>
   <div class="header">
-    <img class="logo" src="@/assets/img/logo-dewalt.svg"/>
+    <router-link to="/">
+      <img class="logo" src="@/assets/img/logo-dewalt.svg"/>
+    </router-link>
     <Cart/>
   </div>
 </template>

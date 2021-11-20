@@ -2,7 +2,13 @@
   <div class="products-list">
     <h2 class="section-title">Just Booked</h2>
     <div class="products-row">
-      <ProductCard v-for="(product, key) in productsList.booked" :product="product" :key="key"/>
+      <router-link
+        :to="{ path: `/product/${key}` }"
+        v-for="(product, key) in productsList.booked"
+        :key="key"
+         @click.native="selectProduct(product)">
+        <ProductCard :product="product"/>
+      </router-link>
     </div>
     <h2 class="section-title"> Featured Experiences </h2>
     <div class="products-row">
@@ -13,7 +19,7 @@
 
 <script>
 import ProductCard from '@/components/product-card'
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'ProductList',
@@ -24,6 +30,14 @@ export default {
     ...mapState({
       productsList: (state) => state.productsList
     })
+  },
+  methods: {
+    ...mapMutations([
+      'SELECT_PRODUCT'
+    ]),
+    selectProduct (product) {
+      this.SELECT_PRODUCT(product)
+    }
   }
 }
 </script>

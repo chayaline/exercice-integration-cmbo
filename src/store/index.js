@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import productsList from '@/utils/products-list'
+import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
     productsList: productsList,
+    selectedProduct: {},
     cart: []
   },
   getters: {
@@ -18,6 +20,9 @@ export default new Vuex.Store({
     },
     CLEAR_CART (state) {
       Vue.set(state.cart, [])
+    },
+    SELECT_PRODUCT (state, product) {
+      Vue.set(state, 'selectedProduct', product)
     }
   },
   actions: {
@@ -26,5 +31,8 @@ export default new Vuex.Store({
     }
   },
   modules: {
-  }
+  },
+  plugins: [
+    createPersistedState()
+  ]
 })
