@@ -4,15 +4,25 @@
       <img class="logo" src="@/assets/img/logo-dewalt.svg"/>
     </router-link>
     <Cart/>
+    <div v-if="cartIsOpen" class="overlay"/>
+    <CartDetails v-if="cartIsOpen"/>
   </div>
 </template>
 
 <script>
 import Cart from '@/components/cart'
+import CartDetails from '@/components/cart-details'
+import { mapState } from 'vuex'
 
 export default {
   components: {
-    Cart
+    Cart,
+    CartDetails
+  },
+  computed: {
+    ...mapState({
+      cartIsOpen: (state) => state.cartIsOpen
+    })
   }
 }
 </script>
@@ -29,7 +39,7 @@ export default {
   top: 0;
   left: 0;
   background-color: $white;
-  z-index: 2;
+  z-index: 1;
 
   img {
     margin: 21px 20px;

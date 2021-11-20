@@ -9,6 +9,7 @@
 
 <script>
 import Header from '@/components/header'
+
 export default {
   components: {
     Header
@@ -42,5 +43,15 @@ export default {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+}
+
+.overlay {
+  z-index:3;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color:#00000040;
+  position: fixed;
 }
 </style>

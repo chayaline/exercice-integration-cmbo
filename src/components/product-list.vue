@@ -6,13 +6,19 @@
         :to="{ path: `/product/${key}` }"
         v-for="(product, key) in productsList.booked"
         :key="key"
-         @click.native="selectProduct(product)">
+        @click.native="selectProduct(product)">
         <ProductCard :product="product"/>
       </router-link>
     </div>
     <h2 class="section-title"> Featured Experiences </h2>
     <div class="products-row">
-      <ProductCard v-for="(product, key) in productsList.featured" :product="product" :key="key"/>
+      <router-link
+        :to="{ path: `/product/${key}` }"
+        v-for="(product, key) in productsList.featured"
+        :key="key"
+        @click.native="selectProduct(product)">
+        <ProductCard :product="product"/>
+      </router-link>
     </div>
   </div>
 </template>
