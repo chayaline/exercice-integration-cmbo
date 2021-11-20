@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { productImage } from '@/utils/helpers'
 
 export default {
   name: 'ProductCard',
@@ -18,9 +19,7 @@ export default {
     product: Object
   },
   computed: {
-    productImage () {
-      return require(`../assets/img/${this.product.image}.png`)
-    },
+    productImage,
     productShortTitle () {
       return this.product.title.split(' ').slice(0, 2).join(' ')
     }
