@@ -58,7 +58,7 @@ export default {
   background-color: $white;
   z-index: 4;
   max-height: 80vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding: 20px;
 }
 

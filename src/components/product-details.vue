@@ -9,6 +9,9 @@
       <div class="actions">
         <numberItems @count-change="updateCount"/>
         <buttonAdd @click.native="addToCart"/>
+        <transition name="show-notif">
+          <span class="notif" v-if="showNotif">Added to cart!</span>
+        </transition>
       </div>
     </div>
     <img width="452px" :src="productImage()"/>
@@ -29,7 +32,15 @@ export default {
   },
   data () {
     return {
-      numberOfItems: 1
+      numberOfItems: 1,
+      showNotif: false
+    }
+  },
+  watch: {
+    showNotif: function (value) {
+      if (value) {
+        setTimeout(function () { this.showNotif = false }.bind(this), 2000)
+      }
     }
   },
   computed: {
@@ -45,9 +56,10 @@ export default {
     updateCount (count) {
       this.numberOfItems = count
     },
-    addToCart () {
+    async addToCart () {
       const { product, numberOfItems: quantity } = this
-      this.ADD_TO_CART({ product, quantity })
+      await this.ADD_TO_CART({ product, quantity })
+      this.showNotif = true
     }
   }
 }
@@ -113,5 +125,22 @@ export default {
 
 img {
   flex-basis: 1;
+}
+
+.notif {
+ color: #26980c;
+}
+
+.show-notif-leave-active,
+.show-notif-enter-active {
+  transition: .5s;
+}
+.show-notif-enter {
+  transform: translate(-20%, 0);
+  opacity: 0;
+}
+.show-notif-leave-to {
+  transform: translate(20%, 0);
+  opacity: 0;
 }
 </style>

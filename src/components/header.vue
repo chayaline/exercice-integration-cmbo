@@ -5,7 +5,9 @@
     </router-link>
     <Cart/>
     <div v-if="cartIsOpen" class="overlay"/>
-    <CartDetails v-if="cartIsOpen"/>
+    <transition name="slide">
+      <CartDetails v-if="cartIsOpen"/>
+    </transition>
   </div>
 </template>
 
@@ -45,4 +47,5 @@ export default {
     margin: 21px 20px;
   }
 }
+
 </style>
