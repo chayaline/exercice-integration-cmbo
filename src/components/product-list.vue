@@ -75,4 +75,10 @@ export default {
     color: $grey-dark;
   }
 }
+
+@media (max-width: 1180px) {
+  .section-title {
+    align-self: center;
+  }
+}
 </style>

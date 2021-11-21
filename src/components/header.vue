@@ -48,4 +48,15 @@ export default {
   }
 }
 
+@media (max-width: 375px) {
+  .logo {
+    width: 100px;
+  }
+}
+
+@media (max-width: 425px) {
+  .logo {
+    width: 120px;
+  }
+}
 </style>

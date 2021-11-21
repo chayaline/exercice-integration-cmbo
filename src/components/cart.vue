@@ -80,4 +80,14 @@ export default {
   width: 730px;
   background-color: $white;
 }
+
+@media (max-width: 425px) {
+  .cart--count {
+    margin-left: 8px;
+  }
+
+  .cart--label {
+    display: none;
+  }
+}
 </style>

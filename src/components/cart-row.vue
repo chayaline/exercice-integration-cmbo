@@ -63,6 +63,7 @@ export default {
     .item-title {
       font-weight: 500;
       color: $grey-mid;
+      text-align: left;
     }
 
     .divider {

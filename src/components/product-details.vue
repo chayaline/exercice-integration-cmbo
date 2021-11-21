@@ -120,6 +120,7 @@ export default {
     justify-content: flex-start;
     align-items: center;
     margin-top: 36px;
+    flex-wrap: wrap;
   }
 }
 
@@ -142,5 +143,11 @@ img {
 .show-notif-leave-to {
   transform: translate(20%, 0);
   opacity: 0;
+}
+
+@media (max-width: 425px) {
+  .products-details .actions {
+    justify-content: center;
+  }
 }
 </style>

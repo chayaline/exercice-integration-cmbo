@@ -113,4 +113,11 @@ export default {
     }
   }
 }
+
+@media (max-width: 425px) {
+  .cart-details {
+    max-width: 80%;
+  }
+}
+
 </style>

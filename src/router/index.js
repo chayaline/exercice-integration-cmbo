@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import productDetails from '../components/product-details'
+import notFound from '../components/not-found'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,11 @@ const routes = [
     name: ':id',
     props: true,
     component: productDetails
+  },
+  {
+    path: '*',
+    name: 'Not Found',
+    component: notFound
   }
 ]
 
