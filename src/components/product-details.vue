@@ -29,7 +29,7 @@ export default {
   },
   data () {
     return {
-      numberOfItems: 0
+      numberOfItems: 1
     }
   },
   computed: {

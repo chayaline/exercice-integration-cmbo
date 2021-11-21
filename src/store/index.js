@@ -45,10 +45,19 @@ export default new Vuex.Store({
     ADD_TO_CART ({ commit, state }, { product, quantity }) {
       const newPrice = state.cart.totalPrice + (quantity * parseFloat(product.price.replace(/,/g, '')))
       const productToAdd = product
-      productToAdd.quantity = quantity
       const totalItems = state.cart.totalItems + quantity
       const newCartItems = state.cart.items
-      newCartItems.push(productToAdd)
+      let alreadyInCart = false
+      newCartItems.forEach((item) => {
+        if (item.image === product.image) {
+          item.quantity += quantity
+          alreadyInCart = true
+        }
+      })
+      if (!alreadyInCart) {
+        productToAdd.quantity = quantity
+        newCartItems.push(productToAdd)
+      }
       commit('SET_CART_ITEMS', newCartItems)
       commit('SET_ITEMS_COUNT', totalItems)
       commit('SET_CART_PRICE', newPrice)
@@ -59,7 +68,9 @@ export default new Vuex.Store({
       const newPrice = totalPrice - (quantity * parseFloat(price.replace(/,/g, '')))
       const newCartItems = items
       newCartItems.splice(productId, 1)
+      const totalItems = state.cart.totalItems -= quantity
       commit('SET_CART_ITEMS', newCartItems)
+      commit('SET_ITEMS_COUNT', totalItems)
       commit('SET_CART_PRICE', newPrice)
     }
   },

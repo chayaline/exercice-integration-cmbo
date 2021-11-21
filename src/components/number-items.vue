@@ -11,7 +11,7 @@ export default {
   name: 'numberItems',
   data () {
     return {
-      numberOfItems: 0
+      numberOfItems: 1
     }
   },
   methods: {
@@ -20,7 +20,7 @@ export default {
       this.$emit('count-change', this.numberOfItems)
     },
     removeItem () {
-      if (this.numberOfItems === 0) return
+      if (this.numberOfItems === 1) return
       this.numberOfItems -= 1
       this.$emit('count-change', this.numberOfItems)
     }
